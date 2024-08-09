@@ -1,8 +1,8 @@
-function IsElement(element) {
+export function IsElement(element) {
     return element instanceof Element || element instanceof HTMLDocument;  
 }
 
-function Get(element, array = true, container = null) {
+export function Get(element, array = true, container = null) {
 
     let returns = null;
 
@@ -127,12 +127,12 @@ function Get(element, array = true, container = null) {
 
 }
 
-function StringToFunction(code){
+export function StringToFunction(code){
 
     return new Function('return ' + code)();
 }
 
-function CreateObjectByArray(keys, values){
+export function CreateObjectByArray(keys, values){
 
     let obj = keys.reduce((acc, key, index) => {
     acc[key] = values[index];
@@ -142,7 +142,7 @@ function CreateObjectByArray(keys, values){
     return obj;
 }
 
-function StringfyObject(obj){
+export function StringfyObject(obj){
 
     let result = "";
 
@@ -200,7 +200,7 @@ function StringfyObject(obj){
     return result;
 }
 
-function SerializeString(text){
+export function SerializeString(text){
 
     if(text)
     {
@@ -346,14 +346,14 @@ function SerializeString(text){
     return null;
 }
 
-function FindDevice(maxLenght = 860, integer = false){
+export function FindDevice(maxLenght = 860, integer = false){
 
     return window.innerWidth < window.innerHeight ? (integer ? 1 : 'mobile-vertical') : window.innerWidth < maxLenght ? (integer ? 2 : 'mobile-horizontal') : (integer ? 0 : 'desktop');
 }
 
-let TriggerEvent = (el, eventType, detail) => el.dispatchEvent(new CustomEvent(eventType, { detail }));
+export let TriggerEvent = (el, eventType, detail) => el.dispatchEvent(new CustomEvent(eventType, { detail }));
 
-function ModifyCSSrule(selector, rule, value){
+export function ModifyCSSrule(selector, rule, value){
 
     let ss = document.styleSheets;
     let _break = false;
@@ -379,12 +379,12 @@ function ModifyCSSrule(selector, rule, value){
     }
 }
 
-function ModifyCSSvar(varName, varValue){
+export function ModifyCSSvar(varName, varValue){
 
     document.documentElement.style.setProperty(varName, varValue);
 }
 
-function IsInvalidCSSProperty(property, value) {
+export function IsInvalidCSSProperty(property, value) {
 
     var el = document.createElement('div');
     var keys = Object.keys(el.style);
@@ -404,18 +404,4 @@ function IsInvalidCSSProperty(property, value) {
     }
 
     return true;
-}
-
-export default{
-    IsElement,
-    Get,
-    StringToFunction,
-    CreateObjectByArray,
-    StringfyObject,
-    SerializeString,
-    FindDevice,
-    TriggerEvent,
-    ModifyCSSrule,
-    ModifyCSSvar,
-    IsInvalidCSSProperty
 }
