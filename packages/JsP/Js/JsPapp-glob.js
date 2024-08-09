@@ -351,7 +351,10 @@ function FindDevice(maxLenght = 860, integer = false){
     return window.innerWidth < window.innerHeight ? (integer ? 1 : 'mobile-vertical') : window.innerWidth < maxLenght ? (integer ? 2 : 'mobile-horizontal') : (integer ? 0 : 'desktop');
 }
 
-let TriggerEvent = (el, eventType, detail) => el.dispatchEvent(new CustomEvent(eventType, { detail }));
+function TriggerEvents(el, eventType, detail)
+{
+    el.dispatchEvent(new CustomEvent(eventType, { detail }));
+}
 
 function ModifyCSSrule(selector, rule, value){
 
