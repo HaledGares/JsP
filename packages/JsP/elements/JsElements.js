@@ -1,4 +1,4 @@
-function MobileSwipeOut(element, callbacks, ActionClass = '') {
+export function MobileSwipeOut(element, callbacks, ActionClass = '') {
     let startX, startY, endX, endY;
     const threshold = 30;
     let isSwiping = false;
@@ -80,7 +80,7 @@ function MobileSwipeOut(element, callbacks, ActionClass = '') {
     }, { passive: false });
 }
 
-function MobileViewer_Vertical(element, classGroup, classItem, options = null)
+export function MobileViewer_Vertical(element, classGroup, classItem, options = null)
 {
     let exits = [
     'ui-mobileViewer-exitTop', 'ui-mobileViewer-exitBottom', 'ui-mobileViewer-exitRight', 'ui-mobileViewer-exitLeft'
@@ -535,7 +535,7 @@ function MobileViewer_Vertical(element, classGroup, classItem, options = null)
     };
 }
 
-function HideShowDiv(div, mode, options)
+export function HideShowDiv(div, mode, options)
 {
     let classHide = options && options.classHide ? options.classHide : 'div-hide';
     let classShow = options && options.classShow ? options.classShow : 'div-show';
@@ -602,7 +602,7 @@ function HideShowDiv(div, mode, options)
     }
 }
 
-function MoveDiv(div, mode, options)
+export function MoveDiv(div, mode, options)
 {
     let classOut = options && options.classOut ? options.classOut : null;
     let classTransition = options && options.classTransition ? options.classTransition : 'ui-P-transition'; 
@@ -680,10 +680,3 @@ function MoveDiv(div, mode, options)
         div.classList.remove(classOut);
     }
 }
-
-export {
-    MobileSwipeOut,
-    MobileViewer_Vertical,
-    HideShowDiv,
-    MoveDiv
-};
