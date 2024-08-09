@@ -1,4 +1,4 @@
-function AngleInterpolation(angle1, angle2, t) {
+export function AngleInterpolation(angle1, angle2, t) {
     let diff = angle2 - angle1;
     if (diff > 180) {
         diff -= 360;
@@ -8,11 +8,11 @@ function AngleInterpolation(angle1, angle2, t) {
     return angle1 + t * diff;
 }
 
-function Repeat(value, length) {
+export function Repeat(value, length) {
     return value - Math.floor(value / length) * length;
 }
 
-function Split(value, type = "fraction") {
+export function Split(value, type = "fraction") {
     if(type == "integer")
     {
         return value - Math.floor(value);
@@ -23,11 +23,11 @@ function Split(value, type = "fraction") {
     }
 }
 
-function Remap(value, from1, to1, from2, to2) {
+export function Remap(value, from1, to1, from2, to2) {
     return from2 + ((value - from1) * (to2 - from2)) / (to1 - from1);
 }
 
-function MatrixMultiply(row, column, type = "column*row")
+export function MatrixMultiply(row, column, type = "column*row")
 {
     function multiplyColumnByRow() {
         let result = [];
@@ -60,11 +60,3 @@ function MatrixMultiply(row, column, type = "column*row")
         return multiplyRowByColumn();
     }        
 }
-
-export {
-    AngleInterpolation,
-    Repeat,
-    Split,
-    Remap,
-    MatrixMultiply
-};
