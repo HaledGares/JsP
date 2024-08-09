@@ -1,4 +1,4 @@
-function ResizeImage(image, width, height) {
+export function ResizeImage(image, width, height) {
     const canvas = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
